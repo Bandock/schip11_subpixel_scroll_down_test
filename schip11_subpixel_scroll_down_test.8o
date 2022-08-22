@@ -1,0 +1,36 @@
+# SuperCHIP V1.1 Subpixel Scroll Down Test
+# By Joshua Moss
+
+: main
+v1 := 0
+i := pixel
+sprite v1 v1 1
+scroll-down 1
+sprite v1 v1 1
+v1 := 28
+v2 := 14
+if vf == 0 then jump not_supported
+clear
+i := thumbs_up
+sprite v1 v2 5
+loop
+again
+: not_supported
+clear
+i := thumbs_down
+sprite v1 v2 5
+loop
+again
+
+: pixel
+0b10000000
+
+: thumbs_up
+0b00010000
+0b00010000
+: thumbs_down
+0b11110000
+0b11110000
+0b11110000
+0b00010000
+0b00010000
